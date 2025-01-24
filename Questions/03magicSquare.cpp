@@ -2,16 +2,18 @@
 #include "headers/array2D.h"
 using namespace std;
 
+//Time Complexity: O(n*n)
+//Space Complexity: O(1)
 void generateMagicSquare(int **arr, int n)
 {
     int i = 0;
     int j = n / 2;
     arr[i][j] = 1;
     int k = 2;
-    // row nahi hai;
-    // column nahi hai;
-    // hai but filled hai;
-    // row column dono nahi hai;
+    // row nahi hai->wrap row;
+    // column nahi hai->wrap column;
+    // hai but filled hai->come one row down and prev col;
+    // row column dono nahi hai->come one row down;
     while (k <= n * n)
     {
         int temp_i = i - 1;
