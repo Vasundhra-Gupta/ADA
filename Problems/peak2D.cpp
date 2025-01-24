@@ -2,8 +2,10 @@
 #include <vector>
 #include "headers/array2D.h"
 using namespace std;
+//Time Complexity: O(nlogn)
+//Space Complexity: O(logn) due to recursive call stack.
 
-vector<int> peakGrid(arr, int low, int high, int row)
+vector<int> peakGrid(int**arr,int low, int high, int row)
 {
     vector<int> result(2);
     int mid = (low+high) / 2;
