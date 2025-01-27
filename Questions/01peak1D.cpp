@@ -1,5 +1,5 @@
 #include <iostream>
-#include "headers/array.h"
+#include "../headers/array1D.h"
 using namespace std;
 // Time Complexity: O(logn)
 // Space Complexity: O(1), or O(logn) due to call Stack for recusrsion

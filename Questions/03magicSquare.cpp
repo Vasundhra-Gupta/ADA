@@ -1,5 +1,5 @@
 #include <iostream>
-#include "headers/array2D.h"
+#include "../headers/array2D.h"
 using namespace std;
 
 //Time Complexity: O(n*n)

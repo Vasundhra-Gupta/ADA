@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "headers/array2D.h"
+#include "../headers/array2D.h"
 using namespace std;
 //Time Complexity: O(nlogn)
 //Space Complexity: O(logn) due to recursive call stack.
