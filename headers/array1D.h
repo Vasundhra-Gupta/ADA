@@ -1,6 +1,8 @@
 #define ARRAY_H
 #ifdef ARRAY_H
 #include <iostream>
+#include <vector>
+#include <algorithm>
 #include <time.h>
 using namespace std;
 
@@ -20,9 +22,14 @@ void printArray(int* arr,int n){
 
 
 void generateArray(int* arr, int n){
-    srand(time(0));//seeding time means to change the seed i.e to make it generate diffrent set of numbers each time program runs, by default it is one, 
+    // srand(time(0));//seeding time means to change the seed i.e to make it generate diffrent set of numbers each time program runs, by default it is one, 
+    vector<int> numbers(n);
+    for (int i = 0; i < n; i++) {
+        numbers[i] = i;
+    }
+    random_shuffle(numbers.begin(), numbers.end());
     for (int i=0; i<n; i++){
-        arr[i] = 0 + rand()%n;
+        arr[i] = numbers[i];
     }
 }
 
