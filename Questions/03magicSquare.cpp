@@ -63,6 +63,6 @@ int main()
         arr[i] = new int[n]();
     }
     generateMagicSquare(arr, n);
-    printArray(arr, n);
+    printArray(arr, n, n);
     return 0;
 }
