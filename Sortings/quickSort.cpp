@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../headers/array1D.h"
+#include "../headers/array1D.h"
 #include <chrono>
 using namespace std;
 using namespace chrono;

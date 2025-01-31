@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../headers/array1D.h"
+#include "../headers/array1D.h"
 #include <chrono>
 using namespace std;
 using namespace chrono;
@@ -28,7 +28,7 @@ int main()
     for (int i = 0; i < 10; i++)
     {
         int arr[n];
-        generateArray(arr, n);
+        (arr, n);
         auto start = high_resolution_clock::now();
         selectionSort(arr, n);
         auto end = high_resolution_clock::now();

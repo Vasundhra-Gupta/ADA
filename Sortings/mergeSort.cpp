@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "../../headers/array1D.h"
+#include "../headers/array1D.h"
 #include <chrono>
 
 void merge(int *arr, int low, int mid, int high)
