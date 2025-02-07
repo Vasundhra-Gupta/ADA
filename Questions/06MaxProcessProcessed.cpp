@@ -100,13 +100,13 @@ void result(double**arr, int n, int m){
 
     auto duration = duration_cast<milliseconds>(end - start);
     cout << "The duration is " << duration.count() << " milliseconds" << endl;
-    for (int i = 0; i < list.size(); i++)
-    {
-        cout << "program number " << i+ 1 << "'s " << list[i] << endl;
-        if(list[i]==0){
-            break;
-        }
-    }
+    // for (int i = 0; i < list.size(); i++)
+    // {
+    //     cout << "program number " << i+ 1 << "'s " << list[i] << endl;
+    //     if(list[i]==0){
+    //         break;
+    //     }
+    // }
 }
 
 int main()
