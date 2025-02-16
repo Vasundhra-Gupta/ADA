@@ -1,7 +1,8 @@
-
+#define ISINSIDETRIANGLE_H
+#ifdef ISINSIDETRIANGLE_H
 #include <iostream>
 #include <vector>
-#include "../headers/convexHull/determinant.h"
+#include "./determinant.h"
 using namespace std;
 
 int crossProduct(int x1, int y1, int x2, int y2, int x, int y)
@@ -23,3 +24,5 @@ bool isPointInternalToTriangle(vector<vector<int>> triangle, int x, int y)
     int d3 = crossProduct(triangle[2][0], triangle[2][1], triangle[0][0], triangle[0][1], x, y);
     return (d1 > 0 && d2 > 0 && d3 > 0) || (d1 < 0 && d2 < 0 && d3 < 0);
 }
+
+#endif

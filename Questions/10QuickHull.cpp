@@ -2,6 +2,7 @@
 #include <vector>
 #include "../headers/convexHull/generateRandomPoints.h"
 #include "../headers/convexHull/isInsideTriangle.h"
+#include "../headers/minMaxIndexInArray.h"
 using namespace std;
 
 void print(vector<vector<int>> arr)
@@ -11,30 +12,6 @@ void print(vector<vector<int>> arr)
         cout << "(" << arr[i][0] << "," << arr[i][1] << ") " ;
     }
     cout << endl;
-}
-
-void maxMin(vector<int> arr, int low, int high, int &max, int &min)
-{
-    if (low == high)
-    {
-        max = min = low;
-    }
-    else
-    {
-        int mid = (low + high) / 2;
-        maxMin(arr, low, mid, max, min);
-        int min1 = min;
-        int max1 = max;
-        maxMin(arr, mid + 1, high, max, min);
-        if (arr[max1] > arr[max])
-        {
-            max = max1;
-        }
-        if (arr[min1] < arr[min])
-        {
-            min = min1;
-        }
-    }
 }
 
 vector<vector<int>> farthestPoint(vector<vector<int>> allPoints)
@@ -49,7 +26,7 @@ vector<vector<int>> farthestPoint(vector<vector<int>> allPoints)
     return {{allPoints[minX][0], allPoints[minX][1]}, {allPoints[maxX][0], allPoints[maxX][1]}};
 }
 
-vector<int> findMaxArea(vector<int> point1, vector<int> point2, vector<vector<int>> region)
+vector<int> findMaxAreaPoint(vector<int> point1, vector<int> point2, vector<vector<int>> region)
 {
     double maxArea = 0;
     int maxAreaIndex = 0;
@@ -81,11 +58,11 @@ void findRegions(vector<vector<int>> farthestPoints, vector<vector<int>> points,
     }
 }
 
-void regions(vector<vector<int>> points, vector<int> min, vector<int> max, vector<vector<int>> &polygon)
+void findExteriorPoints(vector<vector<int>> points, vector<int> min, vector<int> max, vector<vector<int>> &polygon)
 {
     if (!points.empty())
     {
-        vector<int> newPoint = findMaxArea(min, max, points);
+        vector<int> newPoint = findMaxAreaPoint(min, max, points);
         cout << "point with maximum area: " << "(" << newPoint[0] << "," << newPoint[1] << ")" << endl;
         polygon.push_back(newPoint);
         vector<vector<int>> right, left;
@@ -106,8 +83,8 @@ void regions(vector<vector<int>> points, vector<int> min, vector<int> max, vecto
         print(left);
         cout << "right regions for (" << max[0] << "," << max[1] << ") and (" << newPoint[0] << "," << newPoint[1] << "): ";
         print(right);
-        regions(left, min, newPoint, polygon);
-        regions(right, newPoint, max, polygon);
+        findExteriorPoints(left, min, newPoint, polygon);
+        findExteriorPoints(right, newPoint, max, polygon);
     }
 }
 
@@ -144,8 +121,8 @@ int main()
     print(upper);
     cout<<"Lower Region: ";
     print(lower);
-    regions(upper, min, max, polygon);
-    regions(lower, max, min, polygon);
+    findExteriorPoints(upper, min, max, polygon);
+    findExteriorPoints(lower, max, min, polygon);
     print(polygon);
     return 0;
 }
