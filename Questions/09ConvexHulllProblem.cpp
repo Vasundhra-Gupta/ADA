@@ -2,25 +2,15 @@
 #include <vector>
 #include <ctime>
 #include "../headers/array2D.h"
+#include "../headers/convexHull/generateRandomPoints.h"
 #include "../headers/convexHull/generateTriangles.h"
 #include "../headers/convexHull/isInsideTriangle.h"
 using namespace std;
 
-void generateRandomPoints(vector<vector<int>> &arr, int n)
-{
-    srand(time(0));
-    for (int i = 0; i < n; i++)
-    {
-        int x = rand() % 10 + 1;
-        int y = rand() % 10 + 1;
-        arr.push_back({x, y});
-    }
-}
-
-//O(n^4) complexity.
+// O(n^4) complexity.
 void ConvexHull(vector<vector<int>> arr)
 {
-    vector<vector<vector<int>>> triangles = allTriangles(arr, arr.size());//O(n^3)
+    vector<vector<vector<int>>> triangles = allTriangles(arr, arr.size()); // O(n^3)
     cout << triangles.size() << " triangles" << endl;
     for (int i = 0; i < arr.size(); i++)
     {
