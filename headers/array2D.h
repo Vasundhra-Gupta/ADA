@@ -15,12 +15,23 @@ void inputSquaredArray(int **arr, int n)
     }
 }
 
-void inputSquaredArray(vector<vector<int>> arr)
+void inputSquaredArray(vector<vector<int>> &arr)
 {
     cout << "Enter the elements of array:" << endl;
     for (int i = 0; i < arr.size(); i++)
     {
         for (int j = 0; j < arr.size(); j++)
+        {
+            cin >> arr[i][j];
+        }
+    }
+}
+
+void input2DArray(vector<vector<int>> &arr, int row, int col){
+    cout << "Enter the elements of array:" << endl;
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
         {
             cin >> arr[i][j];
         }
