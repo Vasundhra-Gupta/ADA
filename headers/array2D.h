@@ -46,7 +46,7 @@ void printArray(int **arr, int n, int m)
         {
             cout << arr[i][j] << "\t";
         }
-        cout << endl;
+        cout << "----------------"<<endl;
     }
 }
 
@@ -58,7 +58,7 @@ void printArray(vector<vector<int>> arr)
         {
             cout << arr[i][j] << "\t";
         }
-        cout << endl;
+        cout <<endl;
     }
 }
 
