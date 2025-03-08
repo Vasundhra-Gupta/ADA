@@ -5,7 +5,7 @@
 #include "../headers/array2D.h"
 using namespace std;
 
-void MST(vector<vector<int>> adj, vector<vector<int>> &result, int &minWeight)
+void MST(vector<vector<int>> adj    , vector<vector<int>> &result, int &minWeight)
 {
     int n = adj.size(), k = 0, l = 0;
     adj[k][l] = INT_MAX;
