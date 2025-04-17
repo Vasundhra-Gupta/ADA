@@ -23,23 +23,24 @@ int countStages(vector<vector<int>> &cost)
     }
     return stageCount;
 }
-int main()
-{
-    vector<vector<int>> adj = {
-        // {0, 4, 1, INT_MAX},
-        // {INT_MAX, 0, INT_MAX, 6},
-        // {INT_MAX, INT_MAX, 0, 8},
-        // {INT_MAX, INT_MAX, INT_MAX, 0},
-        {0, 2, 5, 10, INT_MAX, INT_MAX, INT_MAX},
-        {INT_MAX, 0, INT_MAX, INT_MAX, 7, 3, INT_MAX},
-        {INT_MAX, INT_MAX, 0, INT_MAX, 1, 9, INT_MAX},
-        {INT_MAX, INT_MAX, INT_MAX, 0, 6, 3, INT_MAX},
-        {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, INT_MAX, 6},
-        {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, 4},
-        {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0},
-    };
 
-    int stages = countStages(adj);
-    cout << "The number of stages are: " << stages;
-    return 0;
-}
+// int main()
+// {
+//     vector<vector<int>> adj = {
+//         // {0, 4, 1, INT_MAX},
+//         // {INT_MAX, 0, INT_MAX, 6},
+//         // {INT_MAX, INT_MAX, 0, 8},
+//         // {INT_MAX, INT_MAX, INT_MAX, 0},
+//         {0, 2, 5, 10, INT_MAX, INT_MAX, INT_MAX},
+//         {INT_MAX, 0, INT_MAX, INT_MAX, 7, 3, INT_MAX},
+//         {INT_MAX, INT_MAX, 0, INT_MAX, 1, 9, INT_MAX},
+//         {INT_MAX, INT_MAX, INT_MAX, 0, 6, 3, INT_MAX},
+//         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, INT_MAX, 6},
+//         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, 4},
+//         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0},
+//     };
+
+//     int stages = countStages(adj);
+//     cout << "The number of stages are: " << stages;
+//     return 0;
+// }

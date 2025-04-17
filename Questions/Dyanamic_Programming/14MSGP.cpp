@@ -3,6 +3,7 @@
 #include <climits>
 #include "../../headers/array1D.h"
 #include "../../headers/array2D.h"
+#include "./15findStages.cpp"
 using namespace std;
 
 // Time complexity: n^2
@@ -58,7 +59,7 @@ int main()
         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, 4},
         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0},
     };
-    int stages = 4;
+    int stages = countStages(adj);
     MGP(adj, stages, adj.size());
 
     return 0;
