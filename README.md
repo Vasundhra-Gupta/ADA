@@ -53,62 +53,62 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
-## 8. Stressens Multiplication
+## 9. Stressens Multiplication
 
 ### Problem :-
 
 ### Solution :-
 
-## 9. Convex Hull Problem
+## 10. Convex Hull Problem
 
 ### Problem :-
 
 ### Solution :-
 
-## 10. Quick Hull
+## 11. Quick Hull
 
 ### Problem :-
 
 ### Solution :-
 
-## 11. Single Source Shortest Path
+## 12. Single Source Shortest Path
 
 ### Problem :-
 
 ### Solution :-
 
-## 12. Prims Algorithm
+## 13. Prims Algorithm
 
 ### Problem :-
 
 ### Solution :-
 
-## 13. Kruskal Algorithm
+## 14. Kruskal Algorithm
 
 ### Problem :-
 
 ### Solution :-
 
-## 14. MultiStage Graph Problem
+## 15. MultiStage Graph Problem
 
 ### Problem :-
 
 ### Solution :-
 
-## 15. Number of Stages in Graph
+## 16. Number of Stages in Graph
 
 ### Problem :-
 
 ### Solution :-
 
-## 16. All Pair Shortest Path
+## 17. All Pair Shortest Path
 
 ### Problem :-
 
 ### Solution :-
 
 
-## 17. N Queen Problem
+## 18. N Queen Problem
 
 ### Problem :-
 
@@ -167,3 +167,8 @@ int main(){
     return 0;
 }
 ```
+
+## 19. Floor Colorings
+
+### Problem:-
+### Solution:- 
