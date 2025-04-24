@@ -4,9 +4,9 @@ Analysis and Design of Algorithms
 
 ## 1. Find peak elements in a 1D array
 
-### Problem :-
+### Problem :- Find the index of the maximum element present in a 1D array
 
-### Solution :-
+### Solution :- To find this, 
 
 ---
 ## 2. Find peak elements in a 2D array
