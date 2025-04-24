@@ -2,11 +2,120 @@
 
 Analysis and Design of Algorithms
 
-## N Queen Problem
-### Problem :- 
+## 1. Find peak elements in a 1D array
+
+### Problem :-
+
+### Solution :-
+
+----------
+## 2. Find peak elements in a 2D array
+
+### Problem :-
+
+### Solution :-
+
+----------
+
+## 3. Magic Square Problem
+
+### Problem :-
+
+### Solution :-
+
+## 4. Fractional KnapSack Problem
+
+### Problem :-
+
+### Solution :-
+
+## 5. Maximum Stack Space used in Quick Sort in Recursion
+
+### Problem :-
+
+### Solution :-
+
+## 6. Activity Selection Problem
+
+### Problem :-
+
+### Solution :-
+
+## 7. Iterative Quick Sort
+
+### Problem :-
+
+### Solution :-
+
+## 8. Matrix Multiplication (Divide and Conquer)
+
+### Problem :-
+
+### Solution :-
+
+## 8. Stressens Multiplication
+
+### Problem :-
+
+### Solution :-
+
+## 9. Convex Hull Problem
+
+### Problem :-
+
+### Solution :-
+
+## 10. Quick Hull
+
+### Problem :-
+
+### Solution :-
+
+## 11. Single Source Shortest Path
+
+### Problem :-
+
+### Solution :-
+
+## 12. Prims Algorithm
+
+### Problem :-
+
+### Solution :-
+
+## 13. Kruskal Algorithm
+
+### Problem :-
+
+### Solution :-
+
+## 14. MultiStage Graph Problem
+
+### Problem :-
+
+### Solution :-
+
+## 15. Number of Stages in Graph
+
+### Problem :-
+
+### Solution :-
+
+## 16. All Pair Shortest Path
+
+### Problem :-
+
+### Solution :-
+
+
+## 17. N Queen Problem
+
+### Problem :-
+
 In n dimensional space , we need to adjust queens such that, no two queens are in the same row, same column or diagnal to each other.
 
-### Solution :- 
+### Solution :-
+
 1. Going from 1 to n, check if current queen can be placed in the ith column ---> Then move to next queen and check where it can be placed---> if no place is found, then backtracking happens and again the queens are replaces
 
 ```
