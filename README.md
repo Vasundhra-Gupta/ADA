@@ -15,7 +15,7 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
-----------
+---
 
 ## 3. Magic Square Problem
 
@@ -23,11 +23,15 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+--- 
+
 ## 4. Fractional KnapSack Problem
 
 ### Problem :-
 
 ### Solution :-
+
+--- 
 
 ## 5. Maximum Stack Space used in Quick Sort in Recursion
 
@@ -35,11 +39,15 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+--- 
+
 ## 6. Activity Selection Problem
 
 ### Problem :-
 
 ### Solution :-
+
+--- 
 
 ## 7. Iterative Quick Sort
 
@@ -47,11 +55,15 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+---
+
 ## 8. Matrix Multiplication (Divide and Conquer)
 
 ### Problem :-
 
 ### Solution :-
+
+--- 
 
 ## 9. Stressens Multiplication
 
@@ -59,11 +71,15 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+--- 
+
 ## 10. Convex Hull Problem
 
 ### Problem :-
 
 ### Solution :-
+
+---
 
 ## 11. Quick Hull
 
@@ -71,11 +87,15 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+--- 
+
 ## 12. Single Source Shortest Path
 
 ### Problem :-
 
 ### Solution :-
+
+---
 
 ## 13. Prims Algorithm
 
@@ -83,11 +103,15 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+---
+
 ## 14. Kruskal Algorithm
 
 ### Problem :-
 
 ### Solution :-
+
+---
 
 ## 15. MultiStage Graph Problem
 
@@ -95,11 +119,17 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+---
+
+
 ## 16. Number of Stages in Graph
 
 ### Problem :-
 
 ### Solution :-
+
+---
+
 
 ## 17. All Pair Shortest Path
 
@@ -107,6 +137,7 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
+---
 
 ## 18. N Queen Problem
 
@@ -168,7 +199,11 @@ int main(){
 }
 ```
 
+--- 
+
 ## 19. Floor Colorings
 
 ### Problem:-
 ### Solution:- 
+
+--- 
