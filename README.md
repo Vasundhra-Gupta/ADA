@@ -8,7 +8,7 @@ Analysis and Design of Algorithms
 
 ### Solution :-
 
---
+---
 ## 2. Find peak elements in a 2D array
 
 ### Problem :-
