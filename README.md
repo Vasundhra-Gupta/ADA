@@ -20,7 +20,7 @@ To find this, we use **Divide and Conquer Approach** implemented via **binary se
 <br>
 **SPACE COMPLEXITY** : O(1), or O(logn) due to call Stack for recusrsion
 
-```
+```cpp
 #include <iostream>
 #include "../headers/array1D.h"
 using namespace std;
@@ -73,7 +73,7 @@ To find this, we use **Divide and Conquer Approach** implemented via **Modified 
 <br>
 **SPACE COMPLEXITY**: O(1), or O(logn) due to call Stack for recusrsion
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include "../headers/array2D.h"
@@ -132,14 +132,25 @@ int main()
 ## 3. Magic Square Problem
 
 ### Problem :-
+Generate a magic square of size n x n (only for odd n), where the sum of all rows, columns, and diagonals is the same.
 
 ### Solution :-
+- Start with placing 1 in the **middle column of the first row**.
+- For every next number:
+   - Move one cell **up and to the right** (i.e., row--, col++).
+   - If the move is **out of the top boundary**, wrap around to the **last row**.
+   - If the move is **out of the right boundary**, wrap around to the **first column**.
+   - If the cell is already filled then Move **one cell down** from the last filled cell,and stay in the **same column**.
+   - If the move is **out of both top row and rightmost column** (i.e., top-right corner):
+     - Move **one cell down** from the last position.
+- Repeat the above steps till all numbers from `1` to `n²` are placed.
+
 
 **TIME COMPLEXITY**: O(n*n)
 <br>
 **SPACE COMPLEXITY**: O(1)
 
-```
+```cpp
 #include <iostream>
 #include "../headers/array2D.h"
 using namespace std;
@@ -210,10 +221,35 @@ int main()
 ## 4. Fractional KnapSack Problem
 
 ### Problem :-
+The Fractional Knapsack Problem is a variant of the classic 0/1 Knapsack problem where:
+n items are given, each with a weight and a profit.
+The goal is to maximize total profit while ensuring the total weight of selected items does not exceed the given capacity of the knapsack.
+Unlike 0/1 Knapsack, here we can break items and take fractions of them.
 
 ### Solution :-
+1. Generate items with:
+   - arr[i][0] → weight
+   - arr[i][1] → profit
+   - arr[i][2] → profit per weight (profit/weight)
 
-```
+2. Sort the items in **descending order of profit per weight**.
+3. Initialize total weight = 0, total profit = 0.
+4. For each item in sorted order:
+   - If adding the entire item keeps total weight ≤ capacity:
+     - Add the whole item.
+     - Increase profit accordingly.
+   - Else:
+     - Take the **fraction** of the item that fits.
+     - Add fractional profit.
+     - Stop once capacity is full.
+5. Track the fraction of each item added using an array.
+
+6. Output:
+   - Maximum profit
+   - Number of items (including fractional)
+   - Execution time (for performance analysis)
+
+```cpp
 #include <iostream>
 #include <time.h>
 #include <vector>
@@ -379,7 +415,7 @@ int main()
 
 ### Solution :-
 
-```
+```cpp
 #include <iostream>
 using namespace std;
 #include "../headers/array1D.h"
@@ -455,10 +491,22 @@ int main()
 ## 7. Iterative Quick Sort
 
 ### Problem :-
+Traditionally, Quick Sort is implemented recursively, which may lead to stack overflow for large input sizes due to deep recursion.
+Implement QuickSort iteratively using a stack, to avoid recursion and manually manage the call stack. 
+The core idea is to replace the function call stack with an explicit stack.
 
 ### Solution :-
+- Select the first element as the pivot in the partition() function.
+- Rearrange elements so that smaller ones are left of pivot and larger ones are right.
+- Use an explicit stack instead of recursion to manage low and high indices.
+- Push initial low and high values onto the stack.
+- Pop low and high, then perform partitioning to find the correct pivot index.
+- Push the subarrays’ indices back onto the stack for further sorting.
+- Always push the larger subarray later to minimize stack size.
+- Repeat the process until the stack is empty.
+- Finally, the array gets sorted in-place without recursion.
 
-```
+```cpp
 #include <iostream>
 #include <stack>
 #include "../headers/array1D.h"
@@ -582,10 +630,22 @@ int main()
 ## 8. Matrix Multiplication (Divide and Conquer)
 
 ### Problem :-
+Multiply two square matrices using the Divide and Conquer approach.
+Input: Two 2D square matrices of equal dimensions (power of 2 preferred).
+Output: A single matrix that is the product of the two given matrices.
+Objective: Implement recursive matrix multiplication by breaking the matrices into quadrants.
+Constraints: Matrix sizes must be powers of 2 and both matrices must be square.
 
 ### Solution :-
+- Check if the matrix size is 1 (base case), directly multiply and return result.
+- Divide both matrices into four equal-sized submatrices (quadrants).
+- Recursively multiply relevant submatrices to form each quadrant of the result matrix.
+- Combine the four resulting quadrants into the final result matrix.
+- Use a helper function to add two matrices during intermediate steps.
+- The solution mimics Strassen’s idea without reducing multiplication count.
+- Works recursively and combines results back efficiently for larger matrices.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include "../headers/array2D.h"
@@ -710,7 +770,7 @@ int main()
 
 ### Solution :-
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <ctime>
@@ -765,7 +825,7 @@ int main()
 
 ### Solution :-
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include "../headers/convexHull/generateRandomPoints.h"
@@ -904,7 +964,7 @@ int main()
 
 ### Solution :-
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include "../headers/array1D.h"
