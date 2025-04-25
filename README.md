@@ -19,8 +19,7 @@ To find this, we use **Divide and Conquer Approach** implemented via **binary se
 -   If its right neighbour is greater than middle, then peak element must be in right and left part is discarded.
 -   If the middle element is greater than both neighbors (or at a boundary), it is a peak element, and we return its index.
 
-**TIME COMPLEXITY** : O(logn)
-<br>
+**TIME COMPLEXITY** : O(logn)<br>
 **SPACE COMPLEXITY** : O(1), or O(logn) due to call Stack for recusrsion
 
 ```cpp
@@ -75,8 +74,7 @@ To find this, we use **Divide and Conquer Approach** implemented via **Modified 
 -   If its right neighbour is greater than middle, then peak element must be in right and left part is discarded.
 -   If the middle element is greater than both neighbors (or at a boundary), it is a peak element, and we return its index.
 
-**TIME COMPLEXITY**: O(logn)
-<br>
+**TIME COMPLEXITY**: O(logn)<br>
 **SPACE COMPLEXITY**: O(1), or O(logn) due to call Stack for recusrsion
 
 ```cpp
@@ -548,44 +546,6 @@ int partition(int arr[], int low, int high)
     return j;
 }
 
-// void quickSort(int arr[], int low, int high)
-// {
-//     stack<int> st;
-//     while (true)
-//     {
-//         while (low < high)
-//         {
-//             int j = partition(arr, low, high);
-//             if (j - low <= high - j)
-//             {
-//                 low = j + 1;
-//                 st.push(low);
-//                 st.push(high);
-//             }
-//             else
-//             {
-//                 high = j - 1;
-//                 st.push(low);
-//                 st.push(high);
-//             }
-//         }
-//         if (st.empty())
-//         {
-//             return;
-//         }
-//         else
-//         {
-//             high = st.top();
-//             st.pop();
-//             cout<<"high"<<high<<endl;
-//             low = st.top();
-//             st.pop();
-//             cout<<"low"<<low<<endl;
-//         }
-//         // cout<<st.size()<<endl;
-//     }
-// }
-
 void quickSort(int arr[], int low, int high)
 {
     stack<int> st;
@@ -618,17 +578,11 @@ void quickSort(int arr[], int low, int high)
             low = st.top();
             st.pop();
         }
-        // cout<<st.size()<<endl;
     }
 }
 
 int main()
 {
-    // cout << "Enter size of an array" << endl;
-    // int n;
-    // cin >> n;
-    // int *arr = new int[n];
-    // generateArray(arr, n);
     int arr [] = {5, 3, 1, 0 , 7, 0};
     printArray(arr, 6);
     quickSort(arr, 0,6-1);
@@ -964,22 +918,8 @@ int main()
     cin >> n;
     vector<vector<int>> points;
     generateRandomPoints(points, n);
-
-    // vector<vector<int>> points = {
-    //     {4, 10},
-    //     {7, 10},
-    //     {3, 8},
-    //     {1, 2},
-    //     {4, 6},
-    //     {7, 10},
-    //     {8, 6},
-    //     {1, 3},
-    //     {3, 2},
-    //     {8, 4}};
-
     cout << "Given Points:" << endl;
     print(points);
-
     vector<vector<int>> polygon;
     vector<vector<int>> farthestPoints = farthestPoint(points);
     vector<int> min = farthestPoints[0], max = farthestPoints[1];
@@ -1096,7 +1036,7 @@ int main()
 
 ### Solution :-
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -1167,7 +1107,6 @@ void MST(vector<vector<int>> adj    , vector<vector<int>> &result, int &minWeigh
         // push that min near to vistited and
         result.push_back({minNear, near[minNear]});
         minWeight += adj[minNear][near[minNear]];
-        // cout<<"Minimum Weight for : "<<minNear<<" and" <<near[minNear]<<" is " <<minWeight<<endl;
         near[minNear] = -1;
         // again update near vertex and minWeight acc. to minVertex(additional competitor now),
         for (int i = 0; i < n; i++)
@@ -1185,13 +1124,7 @@ void MST(vector<vector<int>> adj    , vector<vector<int>> &result, int &minWeigh
 
 int main()
 {
-    // vertices (0, 1, 2, 3, 4)
     vector<vector<int>> adj = {
-                            // {0, 4, 1, INT_MAX, INT_MAX},
-                            // {4, 0, 2, 5, INT_MAX},
-                            // {1, 2, 0, 8, 10},
-                            // {INT_MAX, 5, 8, 0, 3},
-                            // {INT_MAX, INT_MAX, 10, 3, 0}
                             {0, 28, INT_MAX, INT_MAX, INT_MAX, 10, INT_MAX},
                             {28, 0, 16, INT_MAX, INT_MAX, INT_MAX, 14},
                             {INT_MAX, 16, 0, 12, INT_MAX, INT_MAX, INT_MAX},
@@ -1244,7 +1177,7 @@ This helps in solving problems like shortest path or dynamic programming on such
 -   The logic simulates linear traversal from source to destination across valid paths.
 -   Ensures that only connected paths influence the stage count.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 #include <climits>
@@ -1294,10 +1227,6 @@ void MGP(vector<vector<int>> &cost, int k, int n)
 int main()
 {
     vector<vector<int>> adj = {
-        // {0, 4, 1, INT_MAX},
-        // {INT_MAX, 0, INT_MAX, 6},
-        // {INT_MAX, INT_MAX, 0, 8},
-        // {INT_MAX, INT_MAX, INT_MAX, 0},
         {0, 2, 5, 10, INT_MAX, INT_MAX, INT_MAX},
         {INT_MAX, 0, INT_MAX, INT_MAX, 7, 3, INT_MAX},
         {INT_MAX, INT_MAX, 0, INT_MAX, 1, 9, INT_MAX},
@@ -1334,7 +1263,7 @@ This helps in solving problems like shortest path or dynamic programming on such
 -   The logic simulates linear traversal from source to destination across valid paths.
 -   Ensures that only connected paths influence the stage count.
 
-```
+```cpp
 #include <vector>
 #include <iostream>
 #include <climits>
@@ -1361,26 +1290,26 @@ int countStages(vector<vector<int>> &cost)
     return stageCount;
 }
 
-// int main()
-// {
-//     vector<vector<int>> adj = {
-//         // {0, 4, 1, INT_MAX},
-//         // {INT_MAX, 0, INT_MAX, 6},
-//         // {INT_MAX, INT_MAX, 0, 8},
-//         // {INT_MAX, INT_MAX, INT_MAX, 0},
-//         {0, 2, 5, 10, INT_MAX, INT_MAX, INT_MAX},
-//         {INT_MAX, 0, INT_MAX, INT_MAX, 7, 3, INT_MAX},
-//         {INT_MAX, INT_MAX, 0, INT_MAX, 1, 9, INT_MAX},
-//         {INT_MAX, INT_MAX, INT_MAX, 0, 6, 3, INT_MAX},
-//         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, INT_MAX, 6},
-//         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, 4},
-//         {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0},
-//     };
+int main()
+{
+    vector<vector<int>> adj = {
+        // {0, 4, 1, INT_MAX},
+        // {INT_MAX, 0, INT_MAX, 6},
+        // {INT_MAX, INT_MAX, 0, 8},
+        // {INT_MAX, INT_MAX, INT_MAX, 0},
+        {0, 2, 5, 10, INT_MAX, INT_MAX, INT_MAX},
+        {INT_MAX, 0, INT_MAX, INT_MAX, 7, 3, INT_MAX},
+        {INT_MAX, INT_MAX, 0, INT_MAX, 1, 9, INT_MAX},
+        {INT_MAX, INT_MAX, INT_MAX, 0, 6, 3, INT_MAX},
+        {INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, INT_MAX, 6},
+        {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0, 4},
+        {INT_MAX, INT_MAX, INT_MAX, INT_MAX, INT_MAX, 0},
+    };
 
-//     int stages = countStages(adj);
-//     cout << "The number of stages are: " << stages;
-//     return 0;
-// }
+    int stages = countStages(adj);
+    cout << "The number of stages are: " << stages;
+    return 0;
+}
 ```
 
 ---
@@ -1403,7 +1332,7 @@ In n dimensional space , we need to adjust queens such that, no two queens are i
 
 1. Going from 1 to n, check if current queen can be placed in the ith column ---> Then move to next queen and check where it can be placed---> if no place is found, then backtracking happens and again the queens are replaces
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -1474,7 +1403,7 @@ The adjacency of floors is represented using an adjacency matrix.
 -   Explores all valid combinations — brute-force with pruning via backtracking.
 -   Solves the m-coloring problem, a classic constraint satisfaction problem.
 
-```
+```cpp
 #include <iostream>
 #include <vector>
 using namespace std;
