@@ -1033,8 +1033,13 @@ int main()
 ## 13. Prims Algorithm
 
 ### Problem :-
+Given a connected, undirected, weighted graph, the task is to find a **Minimum Spanning Tree (MST)** — a subset of edges that connects all the vertices with minimum total edge weight and no cycles.
 
 ### Solution :-
+- Prim’s Algorithm grows the MST one vertex at a time starting from any node.
+- It selects the edge with the minimum weight that connects a visited node to an unvisited node.
+- Uses a priority queue or min-heap (or simple arrays in basic implementations) to always pick the next minimum weight edge.
+- Continue until all nodes are included in the MST.
 
 ```cpp
 #include <iostream>
