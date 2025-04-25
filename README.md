@@ -1480,3 +1480,215 @@ int main()
 ```
 
 ---
+
+## 20. SORTINGS
+
+### Problem:-
+Selection Sort
+
+### Solution:-
+
+```cpp
+#include <iostream>
+#include "../headers/array1D.h"
+#include <chrono>
+using namespace std;
+using namespace chrono;
+void selectionSort(int *arr, int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        int min = i;
+        for (int j = i + 1; j < n; j++)
+        {
+            if (arr[j] < arr[min])
+            {
+                min = j;
+            }
+        }
+        swap(arr[i], arr[min]);
+    }
+}
+
+int main()
+{
+    cout << "Enter size of the array: " << endl;
+    int n;
+    cin >> n;
+    int totalDuration = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        int arr[n];
+        (arr, n);
+        auto start = high_resolution_clock::now();
+        selectionSort(arr, n);
+        auto end = high_resolution_clock::now();
+        // printArray(arr, n);
+
+        auto duration = duration_cast<milliseconds>(end - start);
+        totalDuration += duration.count();
+        cout << "The duration is " << duration.count() << " milliseconds" << endl;
+    }
+    cout << "THE AVERAGE TIME TAKEN FOR THE PROGRAM FOR INPUT SIZE " << n << " IS " << totalDuration / 10<<" MILISECONDS"<<endl;
+
+    return 0;
+}
+```
+
+
+### Problem:-
+Quick Sort
+
+### Solution:-
+
+```cpp
+#include <iostream>
+#include "../headers/array1D.h"
+#include <chrono>
+using namespace std;
+using namespace chrono;
+
+
+int partition(int arr[], int low, int high)
+{
+    int pivot = arr[low];
+    int i = low+1;      
+    int j = high;
+    
+    while (i <= j){
+        
+        while (arr[i] <= pivot && i < high ){
+            i++;
+        } ;
+        
+        while (arr[j] > pivot && j > low){
+            j--;
+        } ;
+        if (i < j)
+        {
+            swap(arr[i], arr[j]);
+        }
+    } ;
+    swap(arr[low], arr[j]);
+    return j;
+}
+
+
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
+        int p = partition(arr, low, high);
+        quickSort(arr, low, p - 1);
+        quickSort(arr, p + 1, high);
+    }
+}
+
+int main()
+{
+    cout << "Enter size of the array: " << endl;
+    int n;
+    cin >> n;
+    int totalDuration = 0;
+    for (int i = 0; i < 10; i++)
+    {
+        int arr[n];
+        generateArray(arr, n);
+        // printArray(arr,n);
+        auto start = high_resolution_clock::now();
+        quickSort(arr, 0, n - 1);
+        auto end = high_resolution_clock::now();
+        // printArray(arr, n);
+
+        auto duration = duration_cast<milliseconds>(end - start);
+        totalDuration += duration.count();
+        cout << "The duration is " << duration.count() << " milliseconds" << endl;
+    }
+    cout << "THE AVERAGE TIME TAKEN FOR THE PROGRAM FOR INPUT SIZE " << n <<" IS " << totalDuration / 10 << " MILISECONDS" << endl;
+
+    return 0;
+}
+
+```
+
+### Problem:-
+Merge Sort
+
+### Solution:-
+
+```cpp
+#include <iostream>
+using namespace std;
+#include "../headers/array1D.h"
+#include <chrono>
+
+void merge(int *arr, int low, int mid, int high)
+{
+    int i = low;
+    int j = mid + 1;
+    int k = 0;
+    int* b = new int[high-low+1];
+    while (i <= mid && j <= high)
+    {
+        if (arr[i] <= arr[j])
+        {
+            b[k++] = arr[i++];
+        }
+        else
+        {
+            b[k++] = arr[j++];
+        }
+    }
+
+    while(i<=mid){
+        b[k++] = arr[i++];
+    }
+    while(j<=high){
+        b[k++] = arr[j++];
+    }
+
+    for(int i = low; i<=high; i++){
+        arr[i] = b[i-low];
+    }
+      delete[] b;
+}
+
+void mergeSort(int *arr, int low, int high)
+{
+    int mid = (low + high) / 2;
+    if (low < high)
+    {
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
+    }
+}
+
+int main()
+{
+    cout << "Enter size of array: " << endl;
+    int n;
+    cin >> n;
+    int arr[n];
+    int totalDuration = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        generateArray(arr, n);
+        // printArray(arr, n);
+
+        auto start = chrono::high_resolution_clock::now();
+        mergeSort(arr, 0, n - 1);
+        auto end = chrono::high_resolution_clock::now();
+        // printArray(arr, n);
+        auto duration = chrono::duration_cast<chrono::milliseconds>(end - start);
+        totalDuration+= duration.count();
+        cout << "The duration is " << duration.count() << " milliseconds" << endl;
+    }
+    cout << "THE AVERAGE TIME TAKEN FOR THE PROGRAM FOR INPUT SIZE " << n << " IS " << totalDuration / 10 << " MILISECONDS" << endl;
+
+    return 0;
+}
+```
+
+
