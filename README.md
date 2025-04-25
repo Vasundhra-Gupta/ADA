@@ -4,17 +4,20 @@ Analysis and Design of Algorithms
 
 ## 1. Find peak elements in a 1D array
 
-### Problem :- 
+### Problem :-
+
 Find the index [i] of any peak element (an element that is greater than or equal to its neighbors- left and right) present in a 1D array
 **Note: No duplicates are allowed**
 
-### Solution :- 
+### Solution :-
+
 To find this, we use **Divide and Conquer Approach** implemented via **binary search**.
-- At Each Step, we find middle element of the array.
-- Then it is compared with its neighbours.
-- If its left neighbour is greater than middle, then peak element must be in left and right part is discarded.
-- If its right neighbour is greater than middle, then peak element must be in right and left part is discarded.
-- If the middle element is greater than both neighbors (or at a boundary), it is a peak element, and we return its index.
+
+-   At Each Step, we find middle element of the array.
+-   Then it is compared with its neighbours.
+-   If its left neighbour is greater than middle, then peak element must be in left and right part is discarded.
+-   If its right neighbour is greater than middle, then peak element must be in right and left part is discarded.
+-   If the middle element is greater than both neighbors (or at a boundary), it is a peak element, and we return its index.
 
 **TIME COMPLEXITY** : O(logn)
 <br>
@@ -57,17 +60,20 @@ int main()
 
 ## 2. Find peak elements in a 2D array
 
-### Problem :- 
+### Problem :-
+
 Find the index [i][j] of any the peak element (an element that is greater than or equal to its four neighbours- top, bottom, left, right) present in a 2D array
 **Note: Edge elements are compared with only their existing neighbours**
 
-### Solution :- 
+### Solution :-
+
 To find this, we use **Divide and Conquer Approach** implemented via **Modified Binary Search on columns**.
-- First, We find middle column and in this column we find the maximum element.
-- Then it is compared with its neighbours.
-- If its left neighbour is greater than middle, then peak element must be in left and right part is discarded.
-- If its right neighbour is greater than middle, then peak element must be in right and left part is discarded.
-- If the middle element is greater than both neighbors (or at a boundary), it is a peak element, and we return its index.
+
+-   First, We find middle column and in this column we find the maximum element.
+-   Then it is compared with its neighbours.
+-   If its left neighbour is greater than middle, then peak element must be in left and right part is discarded.
+-   If its right neighbour is greater than middle, then peak element must be in right and left part is discarded.
+-   If the middle element is greater than both neighbors (or at a boundary), it is a peak element, and we return its index.
 
 **TIME COMPLEXITY**: O(logn)
 <br>
@@ -132,21 +138,22 @@ int main()
 ## 3. Magic Square Problem
 
 ### Problem :-
+
 Generate a magic square of size n x n (only for odd n), where the sum of all rows, columns, and diagonals is the same.
 
 ### Solution :-
-- Start with placing 1 in the **middle column of the first row**.
-- For every next number:
-   - Move one cell **up and to the right** (i.e., row--, col++).
-   - If the move is **out of the top boundary**, wrap around to the **last row**.
-   - If the move is **out of the right boundary**, wrap around to the **first column**.
-   - If the cell is already filled then Move **one cell down** from the last filled cell,and stay in the **same column**.
-   - If the move is **out of both top row and rightmost column** (i.e., top-right corner):
-     - Move **one cell down** from the last position.
-- Repeat the above steps till all numbers from `1` to `n²` are placed.
 
+-   Start with placing 1 in the **middle column of the first row**.
+-   For every next number:
+    -   Move one cell **up and to the right** (i.e., row--, col++).
+    -   If the move is **out of the top boundary**, wrap around to the **last row**.
+    -   If the move is **out of the right boundary**, wrap around to the **first column**.
+    -   If the cell is already filled then Move **one cell down** from the last filled cell,and stay in the **same column**.
+    -   If the move is **out of both top row and rightmost column** (i.e., top-right corner):
+        -   Move **one cell down** from the last position.
+-   Repeat the above steps till all numbers from `1` to `n²` are placed.
 
-**TIME COMPLEXITY**: O(n*n)
+**TIME COMPLEXITY**: O(n\*n)
 <br>
 **SPACE COMPLEXITY**: O(1)
 
@@ -161,7 +168,7 @@ void generateMagicSquare(int **arr, int n)
     int j = n / 2;
     arr[i][j] = 1;
     int k = 2;
-    
+
     while (k <= n * n)
     {
         int temp_i = i - 1;
@@ -216,38 +223,41 @@ int main()
 }
 ```
 
---- 
+---
 
 ## 4. Fractional KnapSack Problem
 
 ### Problem :-
+
 The Fractional Knapsack Problem is a variant of the classic 0/1 Knapsack problem where:
 n items are given, each with a weight and a profit.
 The goal is to maximize total profit while ensuring the total weight of selected items does not exceed the given capacity of the knapsack.
 Unlike 0/1 Knapsack, here we can break items and take fractions of them.
 
 ### Solution :-
+
 1. Generate items with:
-   - arr[i][0] → weight
-   - arr[i][1] → profit
-   - arr[i][2] → profit per weight (profit/weight)
+
+    - arr[i][0] → weight
+    - arr[i][1] → profit
+    - arr[i][2] → profit per weight (profit/weight)
 
 2. Sort the items in **descending order of profit per weight**.
 3. Initialize total weight = 0, total profit = 0.
 4. For each item in sorted order:
-   - If adding the entire item keeps total weight ≤ capacity:
-     - Add the whole item.
-     - Increase profit accordingly.
-   - Else:
-     - Take the **fraction** of the item that fits.
-     - Add fractional profit.
-     - Stop once capacity is full.
+    - If adding the entire item keeps total weight ≤ capacity:
+        - Add the whole item.
+        - Increase profit accordingly.
+    - Else:
+        - Take the **fraction** of the item that fits.
+        - Add fractional profit.
+        - Stop once capacity is full.
 5. Track the fraction of each item added using an array.
 
 6. Output:
-   - Maximum profit
-   - Number of items (including fractional)
-   - Execution time (for performance analysis)
+    - Maximum profit
+    - Number of items (including fractional)
+    - Execution time (for performance analysis)
 
 ```cpp
 #include <iostream>
@@ -389,7 +399,7 @@ int main()
     cout << "Weight\tProfit\tProfit/Weight" << endl;
     printArray(arr, n, m);
     result(arr, n, m);
-    
+
     cout<<"--------------------------"<<endl;
     cout<<"Sort Profits"<<endl;
     quickSort(arr, 0, n - 1, 1, m);
@@ -407,7 +417,7 @@ int main()
 }
 ```
 
---- 
+---
 
 ## 5. Maximum Stack Space used in Quick Sort in Recursion
 
@@ -478,7 +488,7 @@ int main()
 }
 ```
 
---- 
+---
 
 ## 6. Activity Selection Problem
 
@@ -486,25 +496,27 @@ int main()
 
 ### Solution :-
 
---- 
+---
 
 ## 7. Iterative Quick Sort
 
 ### Problem :-
+
 Traditionally, Quick Sort is implemented recursively, which may lead to stack overflow for large input sizes due to deep recursion.
-Implement QuickSort iteratively using a stack, to avoid recursion and manually manage the call stack. 
+Implement QuickSort iteratively using a stack, to avoid recursion and manually manage the call stack.
 The core idea is to replace the function call stack with an explicit stack.
 
 ### Solution :-
-- Select the first element as the pivot in the partition() function.
-- Rearrange elements so that smaller ones are left of pivot and larger ones are right.
-- Use an explicit stack instead of recursion to manage low and high indices.
-- Push initial low and high values onto the stack.
-- Pop low and high, then perform partitioning to find the correct pivot index.
-- Push the subarrays’ indices back onto the stack for further sorting.
-- Always push the larger subarray later to minimize stack size.
-- Repeat the process until the stack is empty.
-- Finally, the array gets sorted in-place without recursion.
+
+-   Select the first element as the pivot in the partition() function.
+-   Rearrange elements so that smaller ones are left of pivot and larger ones are right.
+-   Use an explicit stack instead of recursion to manage low and high indices.
+-   Push initial low and high values onto the stack.
+-   Pop low and high, then perform partitioning to find the correct pivot index.
+-   Push the subarrays’ indices back onto the stack for further sorting.
+-   Always push the larger subarray later to minimize stack size.
+-   Repeat the process until the stack is empty.
+-   Finally, the array gets sorted in-place without recursion.
 
 ```cpp
 #include <iostream>
@@ -630,6 +642,7 @@ int main()
 ## 8. Matrix Multiplication (Divide and Conquer)
 
 ### Problem :-
+
 Multiply two square matrices using the Divide and Conquer approach.
 Input: Two 2D square matrices of equal dimensions (power of 2 preferred).
 Output: A single matrix that is the product of the two given matrices.
@@ -637,13 +650,14 @@ Objective: Implement recursive matrix multiplication by breaking the matrices in
 Constraints: Matrix sizes must be powers of 2 and both matrices must be square.
 
 ### Solution :-
-- Check if the matrix size is 1 (base case), directly multiply and return result.
-- Divide both matrices into four equal-sized submatrices (quadrants).
-- Recursively multiply relevant submatrices to form each quadrant of the result matrix.
-- Combine the four resulting quadrants into the final result matrix.
-- Use a helper function to add two matrices during intermediate steps.
-- The solution mimics Strassen’s idea without reducing multiplication count.
-- Works recursively and combines results back efficiently for larger matrices.
+
+-   Check if the matrix size is 1 (base case), directly multiply and return result.
+-   Divide both matrices into four equal-sized submatrices (quadrants).
+-   Recursively multiply relevant submatrices to form each quadrant of the result matrix.
+-   Combine the four resulting quadrants into the final result matrix.
+-   Use a helper function to add two matrices during intermediate steps.
+-   The solution mimics Strassen’s idea without reducing multiplication count.
+-   Works recursively and combines results back efficiently for larger matrices.
 
 ```cpp
 #include <iostream>
@@ -754,7 +768,7 @@ int main()
 }
 ```
 
---- 
+---
 
 ## 9. Stressens Multiplication
 
@@ -762,24 +776,26 @@ int main()
 
 ### Solution :-
 
---- 
+---
 
 ## 10. Convex Hull Problem
 
 ### Problem :-
+
 Given a set of points in 2D space, compute the smallest convex polygon enclosing all of them.
 A point is part of the convex hull if it lies on the outermost boundary.
 Used in image processing, robotics, computer graphics, and geospatial applications.
 
 ### Solution :-
-- Iterate through every pair of points in the set.
-- For each line formed by a pair, check the orientation of all other points.
-- If all other points lie on the same side of the line (or on the line), mark both endpoints as hull points.
-- Use cross-product or slope comparison to determine side/orientation.
-- Store unique points that satisfy the convex hull condition.
-- Sort final hull points (optional) to connect and visualize the polygon.
 
-**TIME COMPLEXITY**  O(n³) time complexity due to triple nested loops.
+-   Iterate through every pair of points in the set.
+-   For each line formed by a pair, check the orientation of all other points.
+-   If all other points lie on the same side of the line (or on the line), mark both endpoints as hull points.
+-   Use cross-product or slope comparison to determine side/orientation.
+-   Store unique points that satisfy the convex hull condition.
+-   Sort final hull points (optional) to connect and visualize the polygon.
+
+**TIME COMPLEXITY** O(n³) time complexity due to triple nested loops.
 
 ```cpp
 #include <iostream>
@@ -828,24 +844,27 @@ int main()
     return 0;
 }
 ```
+
 ---
 
 ## 11. Quick Hull
 
 ### Problem :-
+
 Given a set of points in a 2D plane, find the minimum boundary polygon enclosing all the points.
 Output the Convex Hull, i.e., the outermost points forming a convex polygon.
 Application: Shape recognition, collision detection, pattern analysis, GIS mapping.
 
 ### Solution :-
-- Find leftmost and rightmost points (min and max x-coordinates).
-- These two points form a line dividing the set into upper and lower subsets.
-- For each side, find the farthest point from the line to form a triangle.
-- Recursively apply the same process on the remaining outer points (outside the triangle).
-- Skip all interior points; only outermost ones are considered.
-- Combine all recursive results to get the final Convex Hull.
-- Works in expected O(n log n) time, similar to Quick Sort strategy.
-- Efficient for sparse hulls (when few points lie on the boundary).
+
+-   Find leftmost and rightmost points (min and max x-coordinates).
+-   These two points form a line dividing the set into upper and lower subsets.
+-   For each side, find the farthest point from the line to form a triangle.
+-   Recursively apply the same process on the remaining outer points (outside the triangle).
+-   Skip all interior points; only outermost ones are considered.
+-   Combine all recursive results to get the final Convex Hull.
+-   Works in expected O(n log n) time, similar to Quick Sort strategy.
+-   Efficient for sparse hulls (when few points lie on the boundary).
 
 ```cpp
 #include <iostream>
@@ -978,20 +997,22 @@ int main()
 }
 ```
 
---- 
+---
 
 ## 12. Single Source Shortest Path
 
 ### Problem :-
+
 Given a multistage graph represented as an adjacency matrix (with INT_MAX meaning no edge), the task is to find the shortest path from the source (first node) to the destination (last node).
 This graph is Directed Acyclic and structured in stages.
 
 ### Solution :-
-- Use a backward approach, starting from the destination node and computing the shortest distances in reverse.
-- Maintain an array fdist[] to store the minimum cost from each node to the destination.
-- Another array d[] stores the next node in the shortest path.
-- Loop from the second-last node to the first, and check for all forward connections to compute the optimal cost recursively.
-- Finally, build the path using the d[] array starting from the source.
+
+-   Use a backward approach, starting from the destination node and computing the shortest distances in reverse.
+-   Maintain an array fdist[] to store the minimum cost from each node to the destination.
+-   Another array d[] stores the next node in the shortest path.
+-   Loop from the second-last node to the first, and check for all forward connections to compute the optimal cost recursively.
+-   Finally, build the path using the d[] array starting from the source.
 
 ```cpp
 #include <iostream>
@@ -1066,6 +1087,7 @@ int main()
     return 0;
 }
 ```
+
 ---
 
 ## 13. Prims Algorithm
@@ -1206,19 +1228,21 @@ int main()
 ## 15. MultiStage Graph Problem
 
 ### Problem :-
+
 Multistage graph is a directed, weighted graph divided into several stages.
 Each node belongs to a specific stage, and edges go only from one stage to the next.
 The task is to find the number of stages in the given multistage graph.
 This helps in solving problems like shortest path or dynamic programming on such graphs.
 
 ### Solution :-
-- Initialize stage count to 1 (starting from source).
-- Start from the first node and scan forward to find the next reachable node.
-- If a forward edge exists (cost ≠ INT_MAX), move to that node and increment the stage count.
-- Continue this till the destination is reached.
-- Return the total number of stage transitions counted.
-- The logic simulates linear traversal from source to destination across valid paths.
-- Ensures that only connected paths influence the stage count.
+
+-   Initialize stage count to 1 (starting from source).
+-   Start from the first node and scan forward to find the next reachable node.
+-   If a forward edge exists (cost ≠ INT_MAX), move to that node and increment the stage count.
+-   Continue this till the destination is reached.
+-   Return the total number of stage transitions counted.
+-   The logic simulates linear traversal from source to destination across valid paths.
+-   Ensures that only connected paths influence the stage count.
 
 ```
 #include <iostream>
@@ -1286,28 +1310,29 @@ int main()
     MGP(adj, stages, adj.size());
 
     return 0;
-}       
+}
 ```
 
 ---
 
-
 ## 16. Number of Stages in Graph
 
 ### Problem :-
+
 Multistage graph is a directed, weighted graph divided into several stages.
 Each node belongs to a specific stage, and edges go only from one stage to the next.
 The task is to find the number of stages in the given multistage graph.
 This helps in solving problems like shortest path or dynamic programming on such graphs.
 
 ### Solution :-
-- Initialize stage count to 1 (starting from source).
-- Start from the first node and scan forward to find the next reachable node.
-- If a forward edge exists (cost ≠ INT_MAX), move to that node and increment the stage count.
-- Continue this till the destination is reached.
-- Return the total number of stage transitions counted.
-- The logic simulates linear traversal from source to destination across valid paths.
-- Ensures that only connected paths influence the stage count.
+
+-   Initialize stage count to 1 (starting from source).
+-   Start from the first node and scan forward to find the next reachable node.
+-   If a forward edge exists (cost ≠ INT_MAX), move to that node and increment the stage count.
+-   Continue this till the destination is reached.
+-   Return the total number of stage transitions counted.
+-   The logic simulates linear traversal from source to destination across valid paths.
+-   Ensures that only connected paths influence the stage count.
 
 ```
 #include <vector>
@@ -1359,7 +1384,6 @@ int countStages(vector<vector<int>> &cost)
 ```
 
 ---
-
 
 ## 17. All Pair Shortest Path
 
@@ -1429,24 +1453,26 @@ int main(){
 }
 ```
 
---- 
+---
 
 ## 19. Floor Colorings
 
 ### Problem:-
+
 We are given a building with multiple floors, where some are directly connected (adjacent).
 The goal is to assign colors to each floor using at most m colors.
 No two adjacent floors can be assigned the same color.
 The adjacency of floors is represented using an adjacency matrix.
 
 ### Solution:-
-- Represent floors and their connections using a graph (adjacency matrix).
-- Use backtracking to try assigning colors to each floor.
-- Use a helper function to check if a color is safe for the current floor.
-- Recursively assign colors floor by floor, backtracking when conflicts arise.
-- If a valid coloring is found for all floors, print the configuration.
-- Explores all valid combinations — brute-force with pruning via backtracking.
-- Solves the m-coloring problem, a classic constraint satisfaction problem.
+
+-   Represent floors and their connections using a graph (adjacency matrix).
+-   Use backtracking to try assigning colors to each floor.
+-   Use a helper function to check if a color is safe for the current floor.
+-   Recursively assign colors floor by floor, backtracking when conflicts arise.
+-   If a valid coloring is found for all floors, print the configuration.
+-   Explores all valid combinations — brute-force with pruning via backtracking.
+-   Solves the m-coloring problem, a classic constraint satisfaction problem.
 
 ```
 #include <iostream>
@@ -1513,4 +1539,4 @@ int main()
 }
 ```
 
---- 
+---
