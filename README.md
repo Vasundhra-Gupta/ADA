@@ -767,8 +767,19 @@ int main()
 ## 10. Convex Hull Problem
 
 ### Problem :-
+Given a set of points in 2D space, compute the smallest convex polygon enclosing all of them.
+A point is part of the convex hull if it lies on the outermost boundary.
+Used in image processing, robotics, computer graphics, and geospatial applications.
 
 ### Solution :-
+- Iterate through every pair of points in the set.
+- For each line formed by a pair, check the orientation of all other points.
+- If all other points lie on the same side of the line (or on the line), mark both endpoints as hull points.
+- Use cross-product or slope comparison to determine side/orientation.
+- Store unique points that satisfy the convex hull condition.
+- Sort final hull points (optional) to connect and visualize the polygon.
+
+**TIME COMPLEXITY**  O(n³) time complexity due to triple nested loops.
 
 ```cpp
 #include <iostream>
@@ -822,8 +833,19 @@ int main()
 ## 11. Quick Hull
 
 ### Problem :-
+Given a set of points in a 2D plane, find the minimum boundary polygon enclosing all the points.
+Output the Convex Hull, i.e., the outermost points forming a convex polygon.
+Application: Shape recognition, collision detection, pattern analysis, GIS mapping.
 
 ### Solution :-
+- Find leftmost and rightmost points (min and max x-coordinates).
+- These two points form a line dividing the set into upper and lower subsets.
+- For each side, find the farthest point from the line to form a triangle.
+- Recursively apply the same process on the remaining outer points (outside the triangle).
+- Skip all interior points; only outermost ones are considered.
+- Combine all recursive results to get the final Convex Hull.
+- Works in expected O(n log n) time, similar to Quick Sort strategy.
+- Efficient for sparse hulls (when few points lie on the boundary).
 
 ```cpp
 #include <iostream>
@@ -961,8 +983,15 @@ int main()
 ## 12. Single Source Shortest Path
 
 ### Problem :-
+Given a multistage graph represented as an adjacency matrix (with INT_MAX meaning no edge), the task is to find the shortest path from the source (first node) to the destination (last node).
+This graph is Directed Acyclic and structured in stages.
 
 ### Solution :-
+- Use a backward approach, starting from the destination node and computing the shortest distances in reverse.
+- Maintain an array fdist[] to store the minimum cost from each node to the destination.
+- Another array d[] stores the next node in the shortest path.
+- Loop from the second-last node to the first, and check for all forward connections to compute the optimal cost recursively.
+- Finally, build the path using the d[] array starting from the source.
 
 ```cpp
 #include <iostream>
@@ -1177,8 +1206,19 @@ int main()
 ## 15. MultiStage Graph Problem
 
 ### Problem :-
+Multistage graph is a directed, weighted graph divided into several stages.
+Each node belongs to a specific stage, and edges go only from one stage to the next.
+The task is to find the number of stages in the given multistage graph.
+This helps in solving problems like shortest path or dynamic programming on such graphs.
 
 ### Solution :-
+- Initialize stage count to 1 (starting from source).
+- Start from the first node and scan forward to find the next reachable node.
+- If a forward edge exists (cost ≠ INT_MAX), move to that node and increment the stage count.
+- Continue this till the destination is reached.
+- Return the total number of stage transitions counted.
+- The logic simulates linear traversal from source to destination across valid paths.
+- Ensures that only connected paths influence the stage count.
 
 ```
 #include <iostream>
@@ -1255,8 +1295,19 @@ int main()
 ## 16. Number of Stages in Graph
 
 ### Problem :-
+Multistage graph is a directed, weighted graph divided into several stages.
+Each node belongs to a specific stage, and edges go only from one stage to the next.
+The task is to find the number of stages in the given multistage graph.
+This helps in solving problems like shortest path or dynamic programming on such graphs.
 
 ### Solution :-
+- Initialize stage count to 1 (starting from source).
+- Start from the first node and scan forward to find the next reachable node.
+- If a forward edge exists (cost ≠ INT_MAX), move to that node and increment the stage count.
+- Continue this till the destination is reached.
+- Return the total number of stage transitions counted.
+- The logic simulates linear traversal from source to destination across valid paths.
+- Ensures that only connected paths influence the stage count.
 
 ```
 #include <vector>
@@ -1383,6 +1434,83 @@ int main(){
 ## 19. Floor Colorings
 
 ### Problem:-
-### Solution:- 
+We are given a building with multiple floors, where some are directly connected (adjacent).
+The goal is to assign colors to each floor using at most m colors.
+No two adjacent floors can be assigned the same color.
+The adjacency of floors is represented using an adjacency matrix.
+
+### Solution:-
+- Represent floors and their connections using a graph (adjacency matrix).
+- Use backtracking to try assigning colors to each floor.
+- Use a helper function to check if a color is safe for the current floor.
+- Recursively assign colors floor by floor, backtracking when conflicts arise.
+- If a valid coloring is found for all floors, print the configuration.
+- Explores all valid combinations — brute-force with pruning via backtracking.
+- Solves the m-coloring problem, a classic constraint satisfaction problem.
+
+```
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void print(vector<int> x)
+{
+    for (int val : x)
+    {
+        cout << val << " ";
+    }
+    cout << endl;
+}
+
+bool Color(int k, int i, vector<int> x, vector<vector<int>> rooms)
+{
+    for (int j = 0; j < k; j++)
+    {
+        if (x[j] == i && rooms[k][j])
+            return false;
+    }
+    return true;
+}
+
+void FC(int k, vector<vector<int>> rooms, int m, vector<int> &x)
+{
+    int n = rooms.size();
+    if (k == n)
+    {
+        return;
+    }
+    for (int i = 0; i < m; i++)
+    {
+        cout << "k: " << k << endl;
+        if (Color(k, i, x, rooms))
+        {
+            x[k] = i;
+            cout << "i: " << i << endl;
+            if (k == n - 1)
+            {
+                print(x);
+            }
+            FC(k + 1, rooms, m, x);
+        }
+    }
+    cout << "B" << endl;
+}
+
+int main()
+{
+    int m;
+    cout << "Enter number of colors" << endl;
+    cin >> m;
+    vector<vector<int>> rooms = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 1, 1, 0},
+        {1, 1, 0, 1, 1},
+        {0, 1, 1, 0, 1},
+        {0, 0, 1, 1, 0},
+    };
+    vector<int> x(rooms.size());
+    FC(0, rooms, m, x);
+}
+```
 
 --- 
