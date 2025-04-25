@@ -235,11 +235,9 @@ Unlike 0/1 Knapsack, here we can break items and take fractions of them.
 ### Solution :-
 
 1. Generate items with:
-
     - arr[i][0] → weight
     - arr[i][1] → profit
     - arr[i][2] → profit per weight (profit/weight)
-
 2. Sort the items in **descending order of profit per weight**.
 3. Initialize total weight = 0, total profit = 0.
 4. For each item in sorted order:
@@ -256,6 +254,8 @@ Unlike 0/1 Knapsack, here we can break items and take fractions of them.
     - Maximum profit
     - Number of items (including fractional)
     - Execution time (for performance analysis)
+  
+**TIME COMPLEXITY: O(n*logn)**
 
 ```cpp
 #include <iostream>
@@ -420,8 +420,16 @@ int main()
 ## 5. Maximum Stack Space used in Quick Sort in Recursion
 
 ### Problem :-
+Quick Sort is a recursive, divide-and-conquer sorting algorithm. Your task is to track and find the maximum stack space (i.e., the maximum recursion depth) used during its execution on a given array.
 
 ### Solution :-
+Why track stack space?
+Every recursive call in Quick Sort consumes stack space. In the worst case, this space can grow to O(n) (e.g., when the array is already sorted), and in the average case, it is O(log n).
+
+How to track?
+- Use a global or reference variable currDepth to track current recursion depth.
+- Maintain another variable maxDepth to store the maximum value reached by currDepth during recursion.
+- Increment currDepth before making recursive calls and decrement it after returning.
 
 ```cpp
 #include <iostream>
@@ -942,17 +950,15 @@ int main()
 ## 12. Single Source Shortest Path
 
 ### Problem :-
+The problem is to find the shortest path from a given source vertex to all other vertices in a weighted, directed graph using **Dijkstra's algorithm**. The graph is represented by an adjacency matrix where each element represents the weight of the edge between two vertices, and INT_MAX signifies no direct edge between them. The goal is to compute the minimum distance and the corresponding path from the source to all other vertices.
 
-Given a multistage graph represented as an adjacency matrix (with INT_MAX meaning no edge), the task is to find the shortest path from the source (first node) to the destination (last node).
-This graph is Directed Acyclic and structured in stages.
 
 ### Solution :-
+- Initialize distances to all vertices and set the path from the source.
+- Use a greedy approach to select the unvisited vertex with the smallest distance.
+- Update the distances and paths of neighboring vertices if a shorter path is found.
+- Repeat until all vertices are visited, yielding the shortest paths and distances from the source.
 
--   Use a backward approach, starting from the destination node and computing the shortest distances in reverse.
--   Maintain an array fdist[] to store the minimum cost from each node to the destination.
--   Another array d[] stores the next node in the shortest path.
--   Loop from the second-last node to the first, and check for all forward connections to compute the optimal cost recursively.
--   Finally, build the path using the d[] array starting from the source.
 
 ```cpp
 #include <iostream>
