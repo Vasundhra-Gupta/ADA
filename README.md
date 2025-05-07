@@ -1333,155 +1333,9 @@ int main()
 
 ---
 
-## 18. N Queen Problem
-
-### Problem :-
-
-In n dimensional space , we need to adjust queens such that, no two queens are in the same row, same column or diagnal to each other.
-
-### Solution :-
-
-1. Going from 1 to n, check if current queen can be placed in the ith column ---> Then move to next queen and check where it can be placed---> if no place is found, then backtracking happens and again the queens are replaces
-
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-void print(vector<int> x){
-    for(int val: x){
-        cout<<val<<" ";
-    }
-    cout<<endl;
-}
-
-bool Place(int k, int i, vector<int> x){
-    for(int j=0; j<k; j++){
-       if(x[j]==i || abs(k-j)==abs(i-x[j])) return false;
-    }
-    return true;
-}
-
-void NQueen(int k, int n, vector<int> &x, bool done){
-    if(k==n){
-        return;
-    }
-    for(int i=0; i<n; i++){
-        if(done) break;
-        cout << "k: " << k << endl;
-        if(Place(k, i, x)){
-            x[k] = i;
-            cout << "i: "<<i<< endl;
-            if(k==n-1){
-                print(x);
-                done = true;
-            }else{
-                NQueen(k+1, n, x,done);
-            }
-        }
-    }
-    cout << "B" << endl;
-}
-
-int main(){
-    int n;
-    cout<<"Enter number of queens"<<endl;
-    cin>>n;
-    vector<int> x(n);
-    NQueen(0, n, x, false);
-    return 0;
-}
-```
-
 ---
 
-## 19. Floor Colorings
-
-### Problem:-
-
-We are given a building with multiple floors, where some are directly connected (adjacent).
-The goal is to assign colors to each floor using at most m colors.
-No two adjacent floors can be assigned the same color.
-The adjacency of floors is represented using an adjacency matrix.
-
-### Solution:-
-
--   Represent floors and their connections using a graph (adjacency matrix).
--   Use backtracking to try assigning colors to each floor.
--   Use a helper function to check if a color is safe for the current floor.
--   Recursively assign colors floor by floor, backtracking when conflicts arise.
--   If a valid coloring is found for all floors, print the configuration.
--   Explores all valid combinations — brute-force with pruning via backtracking.
--   Solves the m-coloring problem, a classic constraint satisfaction problem.
-
-```cpp
-#include <iostream>
-#include <vector>
-using namespace std;
-
-void print(vector<int> x)
-{
-    for (int val : x)
-    {
-        cout << val << " ";
-    }
-    cout << endl;
-}
-
-bool Color(int k, int i, vector<int> x, vector<vector<int>> rooms)
-{
-    for (int j = 0; j < k; j++)
-    {
-        if (x[j] == i && rooms[k][j])
-            return false;
-    }
-    return true;
-}
-
-void FC(int k, vector<vector<int>> rooms, int m, vector<int> &x)
-{
-    int n = rooms.size();
-    if (k == n)
-    {
-        return;
-    }
-    for (int i = 0; i < m; i++)
-    {
-        cout << "k: " << k << endl;
-        if (Color(k, i, x, rooms))
-        {
-            x[k] = i;
-            cout << "i: " << i << endl;
-            if (k == n - 1)
-            {
-                print(x);
-            }
-            FC(k + 1, rooms, m, x);
-        }
-    }
-    cout << "B" << endl;
-}
-
-int main()
-{
-    int m;
-    cout << "Enter number of colors" << endl;
-    cin >> m;
-    vector<vector<int>> rooms = {
-        {0, 1, 1, 0, 0},
-        {1, 0, 1, 1, 0},
-        {1, 1, 0, 1, 1},
-        {0, 1, 1, 0, 1},
-        {0, 0, 1, 1, 0},
-    };
-    vector<int> x(rooms.size());
-    FC(0, rooms, m, x);
-}
-```
-
----
-
-## 20. SORTINGS
+## 18. SORTINGS
 
 ### Problem:-
 Selection Sort
@@ -1690,5 +1544,185 @@ int main()
     return 0;
 }
 ```
+
+--- 
+
+# DYNAMIC PROGRAMMING
+
+Dynamic Prgramming is a method for solving pprblem by breaking them down into overlapping subproblems and storing results to avoid redundance computations.
+It works when: 
+<br>
+**Optimal substructure**: Problem can be broken into subproblems.
+**Overlapping subproblems** : Same subproblems multiple times.
+
+## 19. N Queen Problem
+
+### Problem :-
+
+In n dimensional space , we need to adjust queens such that, no two queens are in the same row, same column or diagnal to each other.
+
+### Solution :-
+
+1. Going from 1 to n, check if current queen can be placed in the ith column ---> Then move to next queen and check where it can be placed---> if no place is found, then backtracking happens and again the queens are replaces
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void print(vector<int> x){
+    for(int val: x){
+        cout<<val<<" ";
+    }
+    cout<<endl;
+}
+
+bool Place(int k, int i, vector<int> x){
+    for(int j=0; j<k; j++){
+       if(x[j]==i || abs(k-j)==abs(i-x[j])) return false;
+    }
+    return true;
+}
+
+void NQueen(int k, int n, vector<int> &x, bool done){
+    if(k==n){
+        return;
+    }
+    for(int i=0; i<n; i++){
+        if(done) break;
+        cout << "k: " << k << endl;
+        if(Place(k, i, x)){
+            x[k] = i;
+            cout << "i: "<<i<< endl;
+            if(k==n-1){
+                print(x);
+                done = true;
+            }else{
+                NQueen(k+1, n, x,done);
+            }
+        }
+    }
+    cout << "B" << endl;
+}
+
+int main(){
+    int n;
+    cout<<"Enter number of queens"<<endl;
+    cin>>n;
+    vector<int> x(n);
+    NQueen(0, n, x, false);
+    return 0;
+}
+```
+
+---
+
+## 20. Floor Colorings
+
+### Problem:-
+
+We are given a building with multiple floors, where some are directly connected (adjacent).
+The goal is to assign colors to each floor using at most m colors.
+No two adjacent floors can be assigned the same color.
+The adjacency of floors is represented using an adjacency matrix.
+
+### Solution:-
+
+-   Represent floors and their connections using a graph (adjacency matrix).
+-   Use backtracking to try assigning colors to each floor.
+-   Use a helper function to check if a color is safe for the current floor.
+-   Recursively assign colors floor by floor, backtracking when conflicts arise.
+-   If a valid coloring is found for all floors, print the configuration.
+-   Explores all valid combinations — brute-force with pruning via backtracking.
+-   Solves the m-coloring problem, a classic constraint satisfaction problem.
+
+```cpp
+#include <iostream>
+#include <vector>
+using namespace std;
+
+void print(vector<int> x)
+{
+    for (int val : x)
+    {
+        cout << val << " ";
+    }
+    cout << endl;
+}
+
+bool Color(int k, int i, vector<int> x, vector<vector<int>> rooms)
+{
+    for (int j = 0; j < k; j++)
+    {
+        if (x[j] == i && rooms[k][j])
+            return false;
+    }
+    return true;
+}
+
+void FC(int k, vector<vector<int>> rooms, int m, vector<int> &x)
+{
+    int n = rooms.size();
+    if (k == n)
+    {
+        return;
+    }
+    for (int i = 0; i < m; i++)
+    {
+        cout << "k: " << k << endl;
+        if (Color(k, i, x, rooms))
+        {
+            x[k] = i;
+            cout << "i: " << i << endl;
+            if (k == n - 1)
+            {
+                print(x);
+            }
+            FC(k + 1, rooms, m, x);
+        }
+    }
+    cout << "B" << endl;
+}
+
+int main()
+{
+    int m;
+    cout << "Enter number of colors" << endl;
+    cin >> m;
+    vector<vector<int>> rooms = {
+        {0, 1, 1, 0, 0},
+        {1, 0, 1, 1, 0},
+        {1, 1, 0, 1, 1},
+        {0, 1, 1, 0, 1},
+        {0, 0, 1, 1, 0},
+    };
+    vector<int> x(rooms.size());
+    FC(0, rooms, m, x);
+}
+```
+
+---
+
+## 21. Matrix Chain Multiplication
+
+### Problem:-
+Given n matrices, find the minimum number of scalar multiplications needed to multiply them.
+
+### Solution:-
+We are given with chains of Matrices. We need to find an order in which matrices must be multiplied to get minimum number of scalor multipliation. We can do this by puttng parenthesis. We don't need to actually multiply matrices, we just need to find order of thrir multiplication.
+<br>
+Given order array as p(1), p(2), p(3), .... p(n), such that Order of A(i) has p(i) * p(i+1) <br>
+Number of Scalor MUltiplications for two matrices of order p  * q and q * r respectively, is **p * q * r**<br>
+m[i,j] is the minimum number of scalor multuplication matrices from i to jth index like A(i), A(i+1)...A(j)<br>
+m[i,j] = { 0 if i=j, min{m[i,k] + m[k,j] + p(i) * p(k+1) * p(j+1)} if i<=k<j}<br>  
+So we would be returning, order of matrices for matrix multiplications, and minumum scalor multiplications!!!
+
+## 22. Longest Common Subsequence
+
+### Problem:-
+
+
+
+
 
 
