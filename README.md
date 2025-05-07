@@ -1720,6 +1720,13 @@ So we would be returning, order of matrices for matrix multiplications, and minu
 ## 22. Longest Common Subsequence
 
 ### Problem:-
+Given with 2 string, X and Y , We need to find longest common subsequence of X and Y .
+
+### Solution:-
+A subsequence is the part of the string, and we are to find the common parts.
+Mathematically, X(i) is the string from 1 to ith index and z1, z2, z3....zk are the subsequences of X (say) such that X(i1) = z1, X(i2) = z2 ...X(in) = zk
+Now, c[i,j] give the length of longest subsequence when X(i) and Y(j) is considered.
+c[i,j] = {1+ c[i-1, j-1] if x(i) = y(j) , max{c[i-1,j], c[i, j-1] if x(i) not equl to y(j) , and 0 if i=0 or j=0}
 
 
 
