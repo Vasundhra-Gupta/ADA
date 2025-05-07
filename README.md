@@ -1714,7 +1714,7 @@ We are given with chains of Matrices. We need to find an order in which matrices
 Given order array as p(1), p(2), p(3), .... p(n), such that Order of A(i) has p(i) * p(i+1) <br>
 Number of Scalor MUltiplications for two matrices of order p  * q and q * r respectively, is **p * q * r**<br>
 m[i,j] is the minimum number of scalor multuplication matrices from i to jth index like A(i), A(i+1)...A(j)<br>
-m[i,j] = { 0 if i=j, min{m[i,k] + m[k,j] + p(i) * p(k+1) * p(j+1)} if i<=k<j}<br>  
+m[i,j] = { 0 if i=j, min{m[i,k] + m[k,j] + p(i) * p(k+1) * p(j+1), m[i,j]} if i<=k<j}<br>  
 So we would be returning, order of matrices for matrix multiplications, and minumum scalor multiplications!!!
 
 ## 22. Longest Common Subsequence
@@ -1726,9 +1726,10 @@ Given with 2 string, X and Y , We need to find longest common subsequence of X a
 A subsequence is the part of the string, and we are to find the common parts.
 Mathematically, X(i) is the string from 1 to ith index and z1, z2, z3....zk are the subsequences of X (say) such that X(i1) = z1, X(i2) = z2 ...X(in) = zk
 Now, c[i,j] give the length of longest subsequence when X(i) and Y(j) is considered.
-c[i,j] = {1+ c[i-1, j-1] if x(i) = y(j) , max{c[i-1,j], c[i, j-1] if x(i) not equl to y(j) , and 0 if i=0 or j=0}
+c[i,j] = {1+ c[i-1,j-1] if x(i) = y(j) , max{c[i-1,j], c[i, j-1] if x(i) not equl to y(j) , and 0 if i=0 or j=0}
 
-
+## 23. Sum of Subsets
+### Problem:- 
 
 
 
