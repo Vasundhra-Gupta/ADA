@@ -36,8 +36,17 @@ It's a method of describing the efficiency of an algorithm as the input size n g
 3. **Big-theta (Θ)** - It describes the exact time (or space) an algorithm takes - the best and worst case are the same order.
    - A function f(n) = Θ(g(n)) iff there exist constants c₁, c₂ > 0 and n₀ ≥ 0 such that *c₁.g(n) ≤ f(n) ≤ c₂.g(n) for all n ≥ n₀*
 
+## Recurrence relation
+It is a function defined in terms of itself, with smaller arguements.
+<br>
+Example: T(n) = 2T(n/2) + n for n>1 and 1 for n=1 
+<br>This is the recurrence relation for merge sort , quick sort etc
 
-
+### Methods to solve recurrence relation
+- Substitution Method
+- Iteraive method
+- Recursion Trees
+- Master's Theorem
 
 <!-- ## Find Maximum element using recursion -->
 
