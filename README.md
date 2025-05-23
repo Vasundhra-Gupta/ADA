@@ -27,7 +27,15 @@ Algorithm is a finite sequence of steps used to solve a particular problem.
 
 <!-- ## Find Maximum element using recursion -->
 
-## Problem:- Minimize number of multiplications in horner's rule.
+## Minimize number of multiplications in horner's rule.
+
+### Problem:- 
+f(x) = a + bx + cx^2 + dx^3.... is a function and to calculate this a lot of multiplications has to be done, so we need to minimize the number of multiplications to calculate this function.
+
+### Solution:- 
+We solve this using **Horner's Rule**.
+- It says you can efficiently write this function as f(x) = a + x(b + x(c + dx)
+- This reduces a lot of multiplications and now we have result in n multiplications only, where n+1 are the number of terms. 
 
 ```cpp
 #include <iostream>
