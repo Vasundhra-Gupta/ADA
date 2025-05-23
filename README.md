@@ -30,11 +30,11 @@ It's a method of describing the efficiency of an algorithm as the input size n g
 
 ### Three main types of Asymptotic Notation
 1. **Big-O (O)** - It describes the maximum time (or space) an algorithm takes - the **worst case** upper bound.
-   A function f(n) = O(g(n)) iff there exist constants c > 0 and n₀ ≥ 0 such that *f(n) ≤ c*g(n) for all n ≥ n₀*
+   - A function f(n) = O(g(n)) iff there exist constants c > 0 and n₀ ≥ 0 such that *f(n) ≤ c.g(n) for all n ≥ n₀*
 2. **Big-omega (Ω)** - It describes the minimum time (or space) an algorithm takes - the **best case** lower bound.
-   A function f(n) = Ω(g(n)) iff there exist constants c > 0 and n₀ ≥ 0 such that *f(n) ≥ c*g(n) for all n ≥ n₀*
+   - A function f(n) = Ω(g(n)) iff there exist constants c > 0 and n₀ ≥ 0 such that *f(n) ≥ c.g(n) for all n ≥ n₀*
 3. **Big-theta (Θ)** - It describes the exact time (or space) an algorithm takes - the best and worst case are the same order.
-   A function f(n) = Θ(g(n)) iff there exist constants c₁, c₂ > 0 and n₀ ≥ 0 such that *c₁*g(n) ≤ f(n) ≤ c₂*g(n) for all n ≥ n₀*
+   - A function f(n) = Θ(g(n)) iff there exist constants c₁, c₂ > 0 and n₀ ≥ 0 such that *c₁.g(n) ≤ f(n) ≤ c₂.g(n) for all n ≥ n₀*
 
 
 
