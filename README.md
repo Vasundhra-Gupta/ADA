@@ -27,7 +27,7 @@ Algorithm is a finite sequence of steps used to solve a particular problem.
 
 <!-- ## Find Maximum element using recursion -->
 
-## Minimum number of multiplications in horner's rule.
+## Problem:- Minimize number of multiplications in horner's rule.
 
 ```cpp
 #include <iostream>
