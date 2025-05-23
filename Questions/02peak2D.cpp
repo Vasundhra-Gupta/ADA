@@ -44,7 +44,7 @@ int main()
         arr[i] = new int[n];
     }
     inputSquaredArray(arr, n);
-    printArray(arr, n, n);
+    // printArray(arr, n, n);
     vector<int> result = peakGrid(arr, 0, n-1, n);
     int i= result[0];
     int j = result[1];
