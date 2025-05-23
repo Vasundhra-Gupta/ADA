@@ -10,8 +10,8 @@ Algorithm is a finite sequence of steps used to solve a particular problem.
 - Language independent.
 - Each step is non ambigous- Definiteness
 - Each step contribute something towards final solution.
-- Minimum inputs- 0
-- Minimum outputs- 1
+- Minimum inputs: 0
+- Minimum outputs: 1
 
 ### How to validate algorithm?
 1. **Correctness** - Whether the analyze give correct output on the input given.
@@ -27,6 +27,26 @@ Algorithm is a finite sequence of steps used to solve a particular problem.
 
 <!-- ## Find Maximum element using recursion -->
 
+## Problem:- Minimize number of multiplications in horner's rule.
+
+```cpp
+#include <iostream>
+using namespace std;
+int horner(int* a, int i, int n, int &x){
+    if(i==n-1){
+        return a[i];
+    }else{
+        return a[i]+ x* horner(a, i+1, n, x);
+    }
+}
+int main(){
+    int a[]= {1, 2, 2, 1};
+    int x=2;
+    int result = horner(a, 0, 4, x);
+    cout<<"result: "<<result<<endl;
+    return 0;
+}
+```
 ## 1. Find peak elements in a 1D array
 
 ### Problem :-
