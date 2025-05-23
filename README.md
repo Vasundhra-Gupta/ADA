@@ -44,9 +44,18 @@ Example: T(n) = 2T(n/2) + n for n>1 and 1 for n=1
 
 ### Methods to solve recurrence relation
 - Substitution Method
-- Iteraive method
+   - Guess the Solution
+   - Use Induction to find the constants and show that the solution is true.
+- Iterative method
+   - Resubstitute recurrence relation again and again to get generalised form
+   - But this is not useful for the ones for which we wre not able to get generalised term.
 - Recursion Trees
+     - It is used to generate guess for substitution method.
+     - Recurrence relation has two parts- one indicates recursion and other indicates the time taken to do each recursion.
 - Master's Theorem
+     - Comapre f(n) with n^(logb(a))
+     - If f(n) is polynomially smaller then T(n) = O(n^(logb(a))
+     - If f(n) is polynomially larger then T(n) = 0(f(n)) + it should also hold regularity condition (which is a
 
 <!-- ## Find Maximum element using recursion -->
 
