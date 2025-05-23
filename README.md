@@ -2,6 +2,31 @@
 
 Analysis and Design of Algorithms
 
+## What is Alogorithm?
+Algorithm is a finite sequence of steps used to solve a particular problem.
+
+### Characterstics of an Algorithm
+- Terminates in finite number of steps
+- Language independent.
+- Each step is non ambigous- Definiteness
+- Each step contribute something towards final solution.
+- Minimum inputs- 0
+- Minimum outputs- 1
+
+### How to validate algorithm?
+1. **Correctness** - Whether the analyze give correct output on the input given.
+2. **Edge Case** - Handles boundary inputs safely
+
+### How to analyze algorithm?
+- **Time Complexity** - Time required by an Algorithm to run to its completion.
+- **Space Complexity** - Space required by an Algorithm to run to its completion.
+
+### How to test algorithm?
+- **Debugging** - Detect and resolve errors.
+- **Profiling** - Analyze on basis of complexities.
+
+<!-- ## Find Maximum element using recursion -->
+
 ## 1. Find peak elements in a 1D array
 
 ### Problem :-
