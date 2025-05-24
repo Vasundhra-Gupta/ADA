@@ -7,7 +7,7 @@ void maxMin(vector<int> arr, int low, int high, int &max, int &min)
     if (low == high)
     {
         max = min = low;
-    }
+    } 
     else
     {
         int mid = (low + high) / 2;
