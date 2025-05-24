@@ -25,9 +25,49 @@ Algorithm is a finite sequence of steps used to solve a particular problem.
 - **Debugging** - Detect and resolve errors.
 - **Profiling** - Analyze on basis of complexities.
 
+## Asymptotic Analysis
+It's a method of describing the efficiency of an algorithm as the input size n grows very large. We use it to measure Time complexity and Space complexity
+
+### Three main types of Asymptotic Notation
+1. **Big-O (O)** - It describes the maximum time (or space) an algorithm takes - the **worst case** upper bound.
+   - A function f(n) = O(g(n)) iff there exist constants c > 0 and n₀ ≥ 0 such that *f(n) ≤ c.g(n) for all n ≥ n₀*
+2. **Big-omega (Ω)** - It describes the minimum time (or space) an algorithm takes - the **best case** lower bound.
+   - A function f(n) = Ω(g(n)) iff there exist constants c > 0 and n₀ ≥ 0 such that *f(n) ≥ c.g(n) for all n ≥ n₀*
+3. **Big-theta (Θ)** - It describes the exact time (or space) an algorithm takes - the best and worst case are the same order.
+   - A function f(n) = Θ(g(n)) iff there exist constants c₁, c₂ > 0 and n₀ ≥ 0 such that *c₁.g(n) ≤ f(n) ≤ c₂.g(n) for all n ≥ n₀*
+
+## Recurrence relation
+It is a function defined in terms of itself, with smaller arguements.
+<br>
+Example: T(n) = 2T(n/2) + n for n>1 and 1 for n=1 
+<br>This is the recurrence relation for merge sort , quick sort etc
+
+### Methods to solve recurrence relation
+- Substitution Method
+   - Guess the Solution
+   - Use Induction to find the constants and show that the solution is true.
+- Iterative method
+   - Resubstitute recurrence relation again and again to get generalised form
+   - But this is not useful for the ones for which we wre not able to get generalised term.
+- Recursion Trees
+     - It is used to generate guess for substitution method.
+     - Recurrence relation has two parts- one indicates recursion and other indicates the time taken to do each recursion.
+- Master's Theorem
+     - Comapre f(n) with n^(logb(a))
+     - If f(n) is polynomially smaller then T(n) = O(n^(logb(a))
+     - If f(n) is polynomially larger then T(n) = 0(f(n)) + it should also hold regularity condition (which is a
+
 <!-- ## Find Maximum element using recursion -->
 
-## Problem:- Minimize number of multiplications in horner's rule.
+## Minimize number of multiplications in horner's rule.
+
+### Problem:- 
+f(x) = a + bx + cx^2 + dx^3.... is a function and to calculate this a lot of multiplications has to be done, so we need to minimize the number of multiplications to calculate this function.
+
+### Solution:- 
+We solve this using **Horner's Rule**.
+- It says you can efficiently write this function as f(x) = a + x(b + x(c + dx)
+- This reduces a lot of multiplications and now we have result in n multiplications only, where n+1 are the number of terms. 
 
 ```cpp
 #include <iostream>
